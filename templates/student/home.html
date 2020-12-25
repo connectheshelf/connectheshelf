@@ -1,0 +1,106 @@
+{% extends 'base.html' %} {% block body %}
+
+
+<section class="tables ">
+    <div class=" container-fluid ">
+        <div class=" row ">
+            <div class=" col-md-12 ">
+                <div class=" section-heading ">
+                    <h2>Cart</h2>
+                </div>
+                <div class=" default-table ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart"></tbody>
+                    </table>
+                    <button id="order" class="button">Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="forms">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Filters</h2>
+                </div>
+                <form id="contact" action="" method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select name="type" id="type">
+                                <option value="ALL" selected>Select Type</option>
+                                <option value="6">class6</option>
+                                <option value="7">class7</option>
+                                <option value="8">class8</option>
+                                <option value="9">Class9</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select name="category" id="category">
+                                <option value="ALL" selected>Select Category</option>
+                                <option value="maths">Maths</option>
+                                <option value="science">Science</option>
+                                <option value="Social">Social science</option>
+                                <option value="Hindi">Hindi</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" id="form-submit" class="button">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row" id="bookShelf">
+            <!-- <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="/static/assets/images/featured_post_01.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-primary">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="bookModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Name of the book: <span id="name"></span></p>
+                <p>Number of books in stock: <span id="stock"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="Add" class="btn btn-primary">Add to cart</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block script %}
+<script src="/static/assets/js/reader.js"></script>
+{% endblock %}

@@ -1,0 +1,99 @@
+.SAWrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 100000;
+    background: linear-gradient(135deg, #a0a0a0, #acabab, #d8d8d8, #ebe9e9);
+}
+
+.SAWrapper .fold {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 2000px;
+    height: 2000px;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+
+.SAWrapper #fold1 {
+    -webkit-animation: removefold1 3s linear;
+    animation: removefold1 3s linear;
+}
+
+.SAWrapper #fold2 {
+    -webkit-animation: removefold2 3s linear;
+    animation: removefold2 3s linear;
+}
+
+.SAWrapper .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotateZ(-10deg);
+    transform: translate(-50%, -50%) rotateZ(-10deg);
+    font-size: 10em !important;
+}
+
+@-webkit-keyframes removefold1 {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+    33%,
+    99% {
+        top: -160%;
+        left: -160%;
+    }
+}
+
+@keyframes removefold1 {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+    33%,
+    99% {
+        top: -160%;
+        left: -160%;
+    }
+}
+
+@-webkit-keyframes removefold2 {
+    0%,
+    33% {
+        top: 0px;
+        left: 0px;
+    }
+    66%,
+    99% {
+        top: 100%;
+        left: 100%;
+    }
+}
+
+@keyframes removefold2 {
+    0%,
+    33% {
+        top: 0px;
+        left: 0px;
+    }
+    66%,
+    99% {
+        top: 100%;
+        left: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 5px;
+    }
+}
+
+
+/*# sourceMappingURL=base.css.map */

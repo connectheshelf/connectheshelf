@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block style %}
+<style>
+    #linkcart {
+        position: fixed;
+        z-index: 1000;
+        bottom: 0%;
+        right: 0%;
+        transform: translate(-50%, -50%);
+        width: 10vw;
+        height: 10vh;
+        border-radius: 100%;
+        background: navy;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #linkcart:hover {
+        box-shadow: 0px 0px 10px 2px black;
+    }
+    
+    #linkcart a {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+</style>
+
+{% endblock %} {% block body %}
+<section style="background-color: cornsilk;">
+    <div class="container-fluid py-0 my-0">
+        <div class="page-heading my-0 py-0">
+            <h1 class="h1 text-center text-success border-bottom border-danger my-3 py-0" style="text-transform: capitalize;">{{category}}</h1>
+        </div>
+        <div class="row my-0 py-2">
+            {% for fs in fst%}
+            <div class="col-md-3 border-bottom border-primary" style='min-height:250px;'>
+                <div style='overflow:hidden;'><img style='max-height:200px; min-height:200px; object-fit:contain;' src="/static/images/{{fs.category}}/{{fs.name}}.jpg" alt="No preview"></div>
+                <div style='overflow-x:hidden' class='bookdesc'>
+                    <h2 class='text-center'>{{fs.name}}</h2>
+                    <h3 class="text-center">{{fs.author}}</h3>
+                    <h3 class="text-center">{{fs.price}}</h3>
+                </div>
+                <p class='text-center'>
+                    <button data="{{fs.bookid}}" class="buttons text-center add"> ADD </button>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="primary-button text-center my-4"><a href="/event/view/novel">View more</a></div>
+</section>
+<div id="linkcart">
+    <a href="/reader/view_order">Go to cart</a>
+</div>
+{% endblock body %} {% block script %}
+<script src="/static/assets/js/script2.js"></script>
+{% endblock %}

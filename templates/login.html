@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% block body %}
+<!-- Forms -->
+<section class="forms" id="signup" style="display: none;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Sign Up</h2>
+                </div>
+                <form id="contact" action="/{{type}}/signup" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="phone" type="text" class="form-control" id="phone" placeholder="Your phone..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="username" type="text" class="form-control" id="username" placeholder="Your username..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="password" type="password" class="form-control" id="password" placeholder="Your password..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="age" type="number" class="form-control" id="password" placeholder="Your age..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" id="form-submit" class="button">Signup</button>
+                            <button class="button" id="loginbtn">Login Instead</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="forms" id="login">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2 class="text-center">Login</h2>
+                </div>
+                <div class="section-heading">
+                    <h2 class="h2 bg-danger text-white text-center">{{Error}}</h2>
+                </div>
+
+                <form id="contact" action="/{{type}}/login/" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="username" type="text" class="form-control" id="username" placeholder="Your username..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="password" type="password" class="form-control" id="password" placeholder="Your password..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button type="submit" id="form-submit" class="button">Login</button>
+                                </div>{% if type == 'reader' %}
+                                <div class="primary-button col-md-3">
+                                    <a href="/reader/signup">Signup Instead</a> </div>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} {% block script %}
+<!-- <script src="/static/assets/js/loginsignup.js"></script> -->
+{% endblock %}

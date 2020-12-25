@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block body %}
+<section>
+    <div class="container">
+        <h3 class="h6">Number of issues:{{nissue}}</h3>
+        <h3 class="h6">Number of requests:{{nrequests}}</h3>
+        <!-- <h3 class="h6">Ratings:{{ratings}}</h3> -->
+    </div>
+</section>
+<section class=" tables " id="print">
+    <div class=" container-fluid ">
+        <div class=" row ">
+            <div class=" col-md-12 ">
+                <div class=" section-heading ">
+                    <h2>Requests</h2>
+                </div>
+                <div class=" default-table ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Id</th>
+                                <th>Book name</th>
+                                <th>Author</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for issue in issues %}
+                            <tr>
+                                <td>{{issue.username}}</td>
+                                <td>{{issue.name}}</td>
+                                <td>{{issue.author}}</td>
+                                <td>{{issue.reason}}</td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

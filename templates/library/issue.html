@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block body %}
+<section class="forms" id="login">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Issue a book</h2>
+                </div>
+                <form id="contact" action="/librarian/issue" method="POST">
+                    {% csrf_token %}
+                    <div class=" row ">
+                        <div class=" col-md-6 ">
+                            <fieldset>
+                                <input name="reference" type=" text " class=" form-control " id="reference" placeholder=" Reference Number... " required=" ">
+                            </fieldset>
+                        </div>
+                        <div class=" col-md-6 ">
+                            <fieldset>
+                                <input name="username" type=" text " class=" form-control " id="username" placeholder=" Student Id... " required=" ">
+                            </fieldset>
+                        </div>
+                        <div class=" col-md-12 ">
+                            <button type="submit" id=" form-submit " class=" button ">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class=" tables ">
+    <div class=" container-fluid ">
+        <div class=" row ">
+            <div class=" col-md-12 ">
+                <div class=" section-heading ">
+                    <h2>Books issued</h2>
+                </div>
+                <div class=" default-table ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Book Id</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for issue in issues %}
+                            <tr>
+                                <td>{{issue.book_id}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

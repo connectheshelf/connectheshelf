@@ -1,0 +1,129 @@
+body{
+    background-color: rgb(2, 2, 44);
+}
+.containerr {
+    width: 100%;
+    margin: 0px;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border: 2px solid grey;
+    padding: 0px;
+    -webkit-box-shadow: inset 0px 0px 10px 3px grey;
+    box-shadow: inset 0px 0px 10px 3px grey;
+}
+
+.myslider_wrapper {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: -ms-grid;
+    display: grid;
+}
+
+.myslider_wrapper .myslider_controls {
+    margin: 0px;
+    padding: 0px;
+    background: grey;
+    width: 8%;
+    height: 100%;
+    z-index: 4;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition-duration: 200ms;
+    transition-duration: 200ms;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    font-size: 4em;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.myslider_wrapper .myslider_controls--left {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.myslider_wrapper .myslider_controls--right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.myslider_wrapper:hover .myslider_controls {
+    visibility: visible;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.myslider_wrapper .myslider {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+}
+
+.myslider_wrapper .myslider .myslider_cards {
+    min-width: 350px;
+    margin: 10px;
+    border: 1px solid grey;
+    position : relative;
+}
+
+.myslider_wrapper .myslider .myslider_cards .image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.myslider_wrapper .myslider .myslider_cards .image img {
+    width: 100%;
+    height: 100%;
+}
+
+.myslider_wrapper .myslider .myslider_cards .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    font-size: 1.2em;
+    color: white;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 20px;
+}
+
+.myslider_wrapper .myslider::-webkit-scrollbar {
+    display: none;
+}
+.event{
+    color: #fff;
+}
+.event .title{
+    font-size: 3rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    text-align: center;
+
+}
+.orderForm{
+    color: #fff !important;
+}

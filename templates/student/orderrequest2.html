@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% block body %}
+<section class="forms">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Request a book</h2>
+                </div>
+                <form id="contact" action="/reader/view_order" method="POST">
+                    {% csrf_token %}
+                    <div class="row ">
+                        <div class="col-md-6 ">
+                            <fieldset>
+                                <input name="name" type="text" class="form-control " id="username " placeholder="Book Name... " required=" ">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6 ">
+                            <fieldset>
+                                <input name="author" type="text" class="form-control " id="password " placeholder="Author Name... " required=" ">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-4 ">
+                            <select name="reason" id="type ">
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="out of stock ">out of stock</option>
+                                <option value="book not found ">book not found</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 ">
+                            <button type="submit " id="form-submit " class="button ">Submit</button>
+                        </div>
+                        <div class="col-md-12 ">
+                            <h4 class="h4">{{message}}</h4>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class=" tables ">
+    <div class=" container-fluid ">
+        <div class=" row ">
+            <div class=" col-md-12 ">
+                <div class=" section-heading ">
+                    <h2>Previous orders</h2>
+                </div>
+                <div class=" default-table ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Book Id</th>
+                                <th>Reference Number</th>
+                                <th>Issue Date</th>
+                                <th>Return Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for issue in issues %}
+                            <tr>
+                                <td>{{issue.book_id}}</td>
+                                <td>{{issue.reference}}</td>
+                                <td>{{issue.issueDate}}</td>
+                                <td>{{issue.returnDate}}</td>
+                                <td class="issue_status">{{issue.status}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

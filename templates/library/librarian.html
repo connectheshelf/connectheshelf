@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block body %}
+</section>
+<div class="row">
+    <div class="col-md-4"><button class="btn btn-outline-danger" id="default">Show Defaults only</button></div>
+    <div class="col-md-4"><button class="btn btn-outline-secondary" id="printbtn">print</button></div>
+    <form action="/librarian/print" class="d-none" method='POST' id='form'>
+        {% csrf_token %}
+        <textarea name="data" class="" cols="30" id='form_input' rows="10"></textarea>
+    </form>
+</div>
+<section class="tables" id='print'>
+    <div class=" container-fluid ">
+        <div class=" row ">
+            <div class=" col-md-12 ">
+                <div class=" section-heading ">
+                    <h2>Books issued</h2>
+                </div>
+                <div class="default-table ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Book Id</th>
+                                <th>Name</th>
+                                <th>Issue Date</th>
+                                <th>Return Date</th>
+                                <th>Issue status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for issue in issues %}
+                            <tr>
+                                <td>{{issue.book_id}}</td>
+                                <td>{{issue.student_id}}</td>
+                                <td>{{issue.issueDate}}</td>
+                                <td>{{issue.returnDate}}</td>
+                                <td class="issue_status">{{issue.status}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

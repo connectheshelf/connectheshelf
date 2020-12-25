@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block body %}
+<section>
+  <div class="page-heading">
+    <h1 class="text-center">Donations</h1>
+    <p>
+      If you have a book which you feel that you might need not in future. Then
+      you should consider about donating it.
+    </p>
+    <p>
+      We will be happy to provide your donated books to someone who needs and
+      could not afford it.
+    </p>
+    <p class="text-danger">
+      We do not use any donated book for selling or in any kind of money making
+      activity. You can contact us anytime to get details about your donated
+      book.
+    </p>
+  </div>
+</section>
+<section class="forms">
+  <div class="section-heading">
+    <h2 class="text-center">Book Donation Form</h2>
+  </div>
+  <form action="/donation" method="POST">
+    {% csrf_token %}
+      <div class="row">
+      <div class="col-6">
+        <fieldset>
+          <input type="text" placeholder="Your name....." />
+        </fieldset>
+      </div>
+      <div class="col-6">
+        <fieldset>
+          <input type="email" placeholder="Your email....." />
+        </fieldset>
+      </div>
+      <div class="col-6">
+        <fieldset>
+          <input type="phone" placeholder="Your contact....." />
+        </fieldset>
+      </div>
+      <div class="col-12">
+        <fieldset>
+          <textarea name="address" id="" cols="30" rows="10" placeholder="Your address...."></textarea>
+        </fieldset>
+      </div>
+      <div class="col-12">
+        <fieldset>
+          <textarea name="bookname" id="" cols="30" rows="10" placeholder="Book name with author...."></textarea>
+        </fieldset>
+      </div>
+      <div class="col-12">
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+    </form>
+</section>
+{% endblock %}

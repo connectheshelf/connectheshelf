@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block body %}
+<section class="forms" id="return">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Return a book</h2>
+                </div>
+                <form id="contact" action="/librarian/return/" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea name="returnbooks" id="bookreturns" placeholder="Book_Id  Confirmation_Id" rows="6"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" id="form-submit" class="button">Return</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <ul id="reportlist">
+            <li class='row'>
+                <span class="col-md-4"></span>
+                <span class="col-md-4"></span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}{% block script %}
+<script src="/static/assets/js/returnbook.js"></script>
+{% endblock %}

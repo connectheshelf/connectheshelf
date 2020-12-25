@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/static/assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="/static/assets/css/owl.css">
+    <link rel="stylesheet" href="/static/assets/css/base.css">
+</head>
+
+<body>
+    <div class='container text-center my-3'>
+        <h1> ConnectheShelf </h1>
+        <p class="text-muted">{{time}}</p>
+        <button class="btn btn-outline-secondary" id='printbtn'>Print</button>
+    </div>
+    <div id="dat">
+        {{text}}
+    </div>
+
+    <script>
+        let dat = document.getElementById('dat');
+        dat.innerHTML = dat.innerText;
+        document.getElementById('printbtn').addEventListener('click', function() {
+            this.style.display = 'none';
+            print();
+        })
+    </script>
+</body>
+
+</html>

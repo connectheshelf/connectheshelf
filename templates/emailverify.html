@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% block body %}
+ <section class="forms">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="section-heading">
+                      <h2>Verify your email</h2>
+                      {% for er in Error%}
+                      <h5 class='h5 bg-danger text-white text-center'>{{er}}</h5>
+                      {% endfor %}
+                    </div>
+                    <form id="contact" action="/reader/verify" method="post">
+                    {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-6">
+                          <fieldset>
+                          <label>Enter otp sent at {{mail}}</label>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                          <fieldset>
+                            <input name="otp" type="password" class="form-control" id="otp" placeholder="otp..." required="">
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <button type="submit" id="form-submit" class="button">Verify</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+{% endblock %}

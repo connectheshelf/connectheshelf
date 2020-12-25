@@ -1,0 +1,124 @@
+{% extends 'base.html'%} {% block body %}
+<section class="forms" id="order">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-heading">
+                    <h1 class="text-center">Your orders</h1>
+                </div>
+                <div class="section-heading">
+                    <h2 class="h2 bg-danger text-white text-center">{{Error}}</h2>
+                </div>
+                <section class="tables">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-heading">
+                                    <h2 class="text-center">Current Orders</h2>
+                                </div>
+                                <div class="default-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Book name</th>
+                                                <th>Author</th>
+                                                <th>Price</th>
+                                                <th class="text-danger">Remove</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="orderlist">
+                                        </tbody>
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">Book price without discount and delivery charge (Actual invoice would be send later)</th>
+                                                <th id='totprice'></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="forms">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="/event/placeorder" method="POST" id='form'>
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <input name="coupon" type="text" class="form-control" id="coupon" placeholder="Coupon if any....">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="radio-item">
+                                                <input name="oldbook" type="checkbox" id="oldbook" value="1">
+                                                <label for="oldbook">Provide me old books if available. (old books costs lesser)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="radio-item">
+                                                <input name="express" type="checkbox" id="express" value="1">
+                                                <label for="express">Need urgent delivery. (Costs Higher)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="address">Delivery address</label>
+                                            <textarea name="address" id="address" cols="30" rows="10">{{address}}</textarea>
+                                        </div>
+                                        <div class="col-12 d-none">
+                                            <textarea name="order" id="formorder" placeholder="Enter your message" rows="6"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="primary-button"><a href="#" id='placeorder'>Place</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <section class="tables col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="default-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Order Id</th>
+                                            <th>Book Id</th>
+                                            <th>Date and time</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for book in fst %}
+                                        <tr>
+                                            <td>{{book.orderId}}</td>
+                                            <td>{{book.bookid}}</td>
+                                            <td>{{book.tme}}</td>
+                                            <td>{{book.status}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+</section>
+
+{% endblock %} {% block script %}
+<script src="/static/assets/js/order.js"></script>
+{% endblock %}

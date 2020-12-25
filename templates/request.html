@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% block body %}
+<section class="forms" id="request">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-heading">
+                    <h1 class="text-center">Make a request</h1>
+                </div>
+                <div class="section-heading">
+                    <h2 class="h2 bg-danger text-white text-center">{{Error}}</h2>
+                </div>
+
+                <form id="contact" action="/reader/request" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="bookname" type="text" class="form-control" id="bookname" placeholder="Book name..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-6">
+                            <fieldset>
+                                <input name="authorname" type="author" class="form-control" id="author" placeholder="Author/publication" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" id="form-submit" class="button">Request</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <section class="tables col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-heading">
+                                <h1 class='text-center'>Previous request</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="default-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Book Name</th>
+                                            <th>Author Name</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for book in fst %}
+                                        <tr>
+                                            <td>{{book.name}}</td>
+                                            <td>{{book.author}}</td>
+                                            <td>{{book.status}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+</section>
+
+{% endblock %}
